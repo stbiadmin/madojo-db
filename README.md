@@ -14,8 +14,8 @@ Repo for INFO290T
 * Add/Update/Delete User view functions: 
 ``` python 
 addStudent()
-updateStudent()
-deleteStudent()
+updateStudent(id)
+deleteStudent(id)
 ```
 
 
@@ -29,8 +29,8 @@ deleteStudent()
 * Add/Update/Delete User view functions: 
 ``` python 
 addCompany()
-updateCompany()
-deleteCompanyt()
+updateCompany(id)
+deleteCompanyt(id)
 ```
 
 
@@ -44,6 +44,6 @@ deleteCompanyt()
 * Add/Update/Delete User view functions: 
 ``` python 
 addSchool()
-updateSchool()
-deleteSchool()
+updateSchool(id)
+deleteSchool(id)
 ```
