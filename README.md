@@ -1,7 +1,7 @@
 # madojo-db
-Repo for INFO290T 
+Repo for INFO290T Final Project
 
-## Project Setup
+## Madojo DB Setup
 
 To build a local copy of this web app:
 
