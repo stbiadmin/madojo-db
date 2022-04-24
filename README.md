@@ -6,5 +6,7 @@ Repo for INFO290T
 
 ### Add Users
 * Add User Endpoint:  
-``` python @madojo.route("/addstudent", methods = ['GET','POST']) ```
+``` python 
+@madojo.route("/addstudent", methods = ['GET','POST']) 
+```
 * Add User view function: addstudent()
