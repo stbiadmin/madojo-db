@@ -1,0 +1,2 @@
+db_user = 'mmxrggwxdvogwx'
+db_secret = 'c8109c24456dc12f913e8032c7b9980f6a08f602555811239811b4e5825bb97c'

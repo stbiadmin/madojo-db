@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Madojo</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="/static/css/custom.css" >
+</head>
+
+
+
+
+<body>
+
+
+
+
+    <div class="centerTitle">
+        <h2>Add Student</h2>
+    </div>
+
+    <form action="" method = "POST">
+        <div class="form-group row ">
+            <div class="col-sm-4">
+                <label for="id">Student ID</label>
+                <input type="text" class="form-control" name="id" id="id">
+            </div>
+        </div>
+        <div class="form-group row">
+            <div class="col-sm-4">
+            <label for="name">Name</label>
+            <input type="text" class="form-control" name="name" id="name">
+            </div>
+        </div>
+        <div class="form-group row">
+            <div class="col-sm-4">
+            <label for="major">Major</label>
+            <input type="text" class="form-control" name="major" id="major">
+            </div>
+        </div>
+        <div class="form-group row">
+            <div class="col-sm-4">
+            <label for="interest">Interest</label>
+            <input type="text" class="form-control" name="interest" id="interest">
+            </div>
+        </div>
+        <div class="form-group row">
+            <div class="col-sm-4">
+            <label for="cv">CV</label>
+            <textarea rows="5" class="form-control" name="cv" id="cv"></textarea>
+            </div>
+        </div>
+        <div class="form-group row">
+            <div class="col-sm-4">
+            <label for="certificate">Certificate</label>
+            <input type="text" class="form-control" name="certificate" id="certificate">
+            </div>
+        </div>
+        <div class="form-group row">
+            <div class="col-sm-4">
+            <label for="gender">Gender</label>
+            <input type="text" class="form-control" name="gender" id="gender">
+            </div>
+        </div>
+        <div class="form-group row">
+            <div class="col-sm-4">
+            <label for="gender">Year</label>
+            <input type="text" class="form-control" name="year" id="year">
+            </div>
+        </div>
+
+        <div class ="centerButtons">
+            <button type="btnAdd" class="btn btn-primary">Submit</button>
+            <a href="/students" class="btn btn-primary">Cancel</a>
+        </div>
+    </form>
+</body>

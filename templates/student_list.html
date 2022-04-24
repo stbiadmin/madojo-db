@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Madojo</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="/static/css/custom.css" >
+</head>
+
+
+<body>
+    <nav class="navbar navbar-inverse">
+        <div class="container-fluid">
+    <div class="navbar-header">
+        <a class="navbar-brand" href="#">Madojo</a>
+    </div>
+    <ul class="nav navbar-nav">
+        <li> <a href="/menu">Admin Home</a></li>
+        <li class="active"><a href="/students">Students</a></li>
+        <li><a href="/companies">Companies</a></li>
+        <li><a href="/schools">Schools</a></li>
+    </ul>
+    </div>
+</nav>
+
+
+<h2>Student Admin</h2>
+
+<table class="table">
+    <thead>
+    <tr>
+        <th scope="col">Id</th>
+        <th scope="col">Name</th>
+        <th scope="col">Major</th>
+        <th scope="col">Interest</th>
+        <th scope="col">CV</th>
+        <th scope="col">Certificate</th>
+        <th scope="col">Gender</th>
+        <th scope="col">Year</th>
+        <th scope="col">[UPDATE]</th>
+        <th scope="col">[REMOVE]</th>
+    </tr>
+    </thead>
+    <a class="btn btn-primary" href="addstudent">Add New Student</a>
+    <tbody>
+    {% for student in students %}
+    <tr>
+        <td>{{ student.student_id }}</th>
+        <td>{{ student.name }}</td>
+        <td>{{ student.major }}</td>
+        <td>{{ student.interest }}</td>
+        <td>{{ student.cv }}</td>
+        <td>{{ student.certificate }}</td>
+        <td>{{ student.gender }}</td>
+        <td>{{ student.school_year }}</td>
+        <td><a href='updateStudent/{{ student.student_id }}'>Edit</a></td>
+        <td><a href='deleteStudent/{{ student.student_id }}'>Delete</a></td>
+
+    </tr>
+    {% endfor %}
+    </tbody>
+</table>
+
+
+</body>
