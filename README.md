@@ -6,7 +6,7 @@ Repo for INFO290T Final Project
 To build a local copy of this web app:
 
 1. Clone this repo to your desired location 
-2. run ```pip install -r requirements.txt``
+2. run ```pip install -r requirements.txt```
 3. run ```python madojo.py```
 4. visit http:127.0.0.1:5000 in your browser
 
