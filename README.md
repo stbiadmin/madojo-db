@@ -26,7 +26,7 @@ deleteStudent(id)
 @madojo.route('/updatecompany/<int:id>',methods = ['GET','POST'])
 @madojo.route('/deletecompany/<int:id>')
 ```
-* Add/Update/Delete User view functions: 
+* Add/Update/Delete Company view functions: 
 ``` python 
 addCompany()
 updateCompany(id)
@@ -41,7 +41,7 @@ deleteCompanyt(id)
 @madojo.route('/updateschool/<int:id>',methods = ['GET','POST'])
 @madojo.route('/deleteschool/<int:id>')
 ```
-* Add/Update/Delete User view functions: 
+* Add/Update/Delete School view functions: 
 ``` python 
 addSchool()
 updateSchool(id)
