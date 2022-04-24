@@ -10,3 +10,6 @@ Repo for INFO290T
 @madojo.route("/addstudent", methods = ['GET','POST']) 
 ```
 * Add User view function: addstudent()
+def addStudent():
+#....
+return redirect('/students')
