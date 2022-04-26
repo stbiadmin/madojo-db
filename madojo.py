@@ -28,6 +28,7 @@ def menu():
 
 #CRUD Operations for Students
 
+
 @madojo.route("/students")
 def students():
     students = []
