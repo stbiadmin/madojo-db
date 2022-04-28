@@ -42,8 +42,14 @@ def students():
     cursor.execute('SELECT * from students')
 
     for row in cursor.fetchall():
-        students.append(({"student_id" : row[0],  "name": row[1], "major": row[2], "interest": row[3],
-                          "cv": row[4], "certificate": row[5], "gender" : row[6],"school_year": row[7] }))
+        students.append(({"student_id" : row[0],
+                          "name": row[1],
+                          "major": row[2],
+                          "interest": row[3],
+                          "cv": row[7],
+                          "certificate": row[6],
+                          "gender" : row[5],
+                          "school_year": row[6] }))
     conn.close()
 
     return render_template("student_list.html", students = students)
@@ -287,7 +293,37 @@ def deleteSchool(id):
     conn.close()
     return redirect('/schools')
 
+#CRUD ops for projects
 
+@madojo.route("/projects")
+def projects():
+    projects = []
+    try:
+        conn = connection()
+        msg = print("Sucessfully Connected to Database (Projects)")
+    except:
+        msg = print("***** Unsuccessful Connection Attempt! *****")
+    cursor = conn.cursor()
+    cursor.execute('SELECT * from projects')
+
+    for row in cursor.fetchall():
+        schools.append(({
+            "project_id" : row[0],
+            "name": row[1],
+            "category" : row[2],
+            "manager":row[3],
+            "teams":row[4],
+            "prize":row[5],
+            "company":row[6],
+            "description":row[7],
+            "num_teams_working_on_project":row[8],
+            "duration_fro,":row[9],
+            "duration_to":row[10]
+
+        }))
+    conn.close()
+
+    return render_template("project_list.html", projects = projects)
 
 #start the server!
 if(__name__ == "__main__"):

@@ -21,39 +21,42 @@
             <li> <a href="/menu">Admin Home</a></li>
             <li><a href="/students">Students</a></li>
             <li ><a href="/companies">Companies</a></li>
-            <li class="active" ><a href="/schools">Schools</a></li>
-            <li ><a href="/projects">Projects</a></li>
+            <li><a href="/schools">Schools</a></li>
+            <li class="active" ><a href="/projects">Projects</a></li>
         </ul>
     </div>
 </nav>
 
 
-<h2>Academic Admin</h2>
+<h2>Project Admin</h2>
 
 <table class="table">
     <thead>
     <tr>
         <th style="width: 5%" scope="col">Id</th>
         <th style="width: 10%" scope="col">Name</th>
-        <th style="width: 20%" scope="col">Address</th>
-        <th style="width: 10%" scope="col">Type</th>
-        <th style="width: 10%" scope="col">Size</th>
+        <th style="width: 20%" scope="col">Category</th>
+        <th style="width: 10%" scope="col">Description</th>
+        <th style="width: 10%" scope="col">Number of Teams</th>
+        <th style="width: 10%" scope="col">Duration: From</th>
+        <th style="width: 10%" scope="col">Duration: To</th>
         <th scope="col">[UPDATE]</th>
         <th scope="col">[REMOVE]</th>
 
     </tr>
     </thead>
-    <a class="btn btn-primary" href="addschool">Add New School</a>
+    <a class="btn btn-primary" href="addproject">Add New Project</a>
     <tbody>
     {% for school in schools %}
     <tr>
-        <td>{{ school.school_id }}</th>
-        <td>{{ school.name }}</td>
-        <td>{{ school.address }}</td>
-        <td>{{ school.type }}</td>
-        <td>{{ school.size }}</td>
-        <td style="width: 5%"> <a href='updateSchool/{{school.school_id }}'>Edit</a></td>
-        <td ><a href='deleteSchool/{{school.school_id }}'>Delete</a></td>
+        <td>{{ project.project_id }}</th>
+        <td>{{ project.name }}</td>
+        <td>{{ project.description }}</td>
+        <td>{{ project.num_teams_working_on_project }}</td>
+        <td>{{ project.duration_from }}</td>
+        <td>{{ project.duration_to }}</td>
+        <td style="width: 5%"> <a href='updateProject/{{project.project_id }}'>Edit</a></td>
+        <td ><a href='deleteProject/{{project.project_id }}'>Delete</a></td>
 
     </tr>
     {% endfor %}
