@@ -110,6 +110,20 @@ def deleteStudent(id):
     conn.close()
     return redirect('/students')
 
+# Added code for displaying student profile
+@madojo.route('/studentProfile/<int:id>', methods = ['GET'])
+def show_student(id):
+    students = []
+    conn = connection()
+    cursor = conn.cursor()
+    if request.method == 'GET':
+        cursor.execute("SELECT * FROM students WHERE student_id = %s", (str(id)))
+        for row in cursor.fetchall():
+            students.append(({"student_id" : row[0],  "name": row[1], "major": row[2], "interest": row[3],
+                              "cv": row[4], "certificate": row[5], "gender" : row[6],"school_year": row[7] }))
+        conn.close()
+    return render_template("student_profile.html", students = students)
+
 
 #CRUD Operations for Companies
 

@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8"/>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Madojo Student Profile</title>
+  <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700,900&display=swap" rel="stylesheet">
+  <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.min.css'>
+  <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css'>-->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" href="/static/css/custom.css">
+
+  <link rel="stylesheet" href="static/css/student_profile.css" />
+
+  <link rel="stylesheet" href="/static/css/style.css">
+</head>
+
+<body>
+  <nav class="navbar navbar-inverse">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <a class="navbar-brand" href="#">Madojo</a>
+      </div>
+      <ul class="nav navbar-nav">
+        <li> <a href="/menu">Admin Home</a></li>
+        <li class="active"><a href="/students">Students</a></li>
+        <li><a href="/companies">Companies</a></li>
+        <li><a href="/schools">Schools</a></li>
+      </ul>
+    </div>
+  </nav>
+
+
+
+  <section>
+    <div class="rt-container">
+      <div class="col-rt-12">
+        <div class="Scriptcontent">
+
+          <!-- Student Profile -->
+          <div class="student-profile py-4">
+            <div class="container">
+              <div class="row">
+                <div class="col-lg-4">
+                  <div class="card shadow-sm">
+                    <div class="card-header bg-transparent text-center">
+                      <img class="profile_img" src="https://source.unsplash.com/600x300/?student" alt="student dp">
+                      {% for student in students %}
+                      <h3>{{ student.name }}</h3>
+                    </div>
+                    <div class="card-body">
+                      <p class="mb-0"><strong class="pr-1">Student ID:</strong>{{ student.student_id }}</p>
+                      <p class="mb-0"><strong class="pr-1">Team Role:</strong>Contributor</p>
+                      <p class="mb-0"><strong class="pr-1">Team Name:</strong>Team Crox-Above</p>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-lg-8">
+                  <div class="card shadow-sm">
+                    <div class="card-header bg-transparent border-0">
+                      <h3 class="mb-0"><i class="far fa-clone pr-1"></i>General Information</h3>
+                    </div>
+                    <div class="card-body pt-0">
+                      <table class="table table-bordered">
+                        <tr>
+                          <th width="30%">Major</th>
+                          <td width="2%">:</td>
+                          <td>{{ student.major }}</td>
+                        </tr>
+                        <tr>
+                          <th width="30%">Academic Year</th>
+                          <td width="2%">:</td>
+                          <td>{{student.school_year}}</td>
+                        </tr>
+                        <tr>
+                          <th width="30%">Gender</th>
+                          <td width="2%">:</td>
+                          <td>{{ student.gender }}</td>
+                        </tr>
+                        <tr>
+                          <th width="30%">Interest</th>
+                          <td width="2%">:</td>
+                          <td>{{ student.interest }}</td>
+                        </tr>
+                      </table>
+                      {% endfor %}
+                    </div>
+                  </div>
+                  <div style="height: 26px"></div>
+                  <div class="card shadow-sm">
+                    <div class="card-header bg-transparent border-0">
+                      <h3 class="mb-0"><i class="far fa-clone pr-1"></i>Current Project</h3>
+                    </div>
+                    <div class="card-body pt-0">
+                      <p>Description: People in Nigeria spend too much time queuing for the bank. This results in all-day
+                        wait times and frustrated customers often have to come back multiple times a week to be
+                        served which takes time away from their day jobs. 15% of former QTBank customers cite long wait times and poor communication as primary
+                        reasons for leaving. QTBank is looking for a digital solution to improve the customer queuing
+                        experience. My team is in charge of designing, building, and presenting our digital
+                        application that addresses this problem. Find more details at <a>www.madojocom/challenges/qtban/make-queueing-better</a></p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- partial -->
+
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+
+  <!-- Analytics -->
+
+</body>
+
+</html>
