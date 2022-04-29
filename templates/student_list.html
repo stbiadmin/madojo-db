@@ -43,6 +43,7 @@
         <th scope="col">Year</th>
         <th scope="col">[UPDATE]</th>
         <th scope="col">[REMOVE]</th>
+        <th scope="col">[SHOW_PROFILE]</th>
     </tr>
     </thead>
     <a class="btn btn-primary" href="addstudent">Add New Student</a>
@@ -59,7 +60,7 @@
         <td>{{ student.school_year }}</td>
         <td><a href='updateStudent/{{ student.student_id }}'>Edit</a></td>
         <td><a href='deleteStudent/{{ student.student_id }}'>Delete</a></td>
-
+        <td><a href='studentProfile/{{ student.student_id }}'>Show Profile</a></td>
     </tr>
     {% endfor %}
     </tbody>
