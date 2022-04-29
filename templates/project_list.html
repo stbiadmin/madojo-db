@@ -47,10 +47,11 @@
     </thead>
     <a class="btn btn-primary" href="addproject">Add New Project</a>
     <tbody>
-    {% for school in schools %}
+    {% for project in projects %}
     <tr>
         <td>{{ project.project_id }}</th>
         <td>{{ project.name }}</td>
+        <td>{{ project.category }}</td>
         <td>{{ project.description }}</td>
         <td>{{ project.num_teams_working_on_project }}</td>
         <td>{{ project.duration_from }}</td>

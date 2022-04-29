@@ -307,23 +307,98 @@ def projects():
     cursor.execute('SELECT * from projects')
 
     for row in cursor.fetchall():
-        schools.append(({
+        projects.append(({
             "project_id" : row[0],
             "name": row[1],
             "category" : row[2],
-            "manager":row[3],
-            "teams":row[4],
-            "prize":row[5],
-            "company":row[6],
-            "description":row[7],
-            "num_teams_working_on_project":row[8],
-            "duration_fro,":row[9],
-            "duration_to":row[10]
+            "description":row[3],
+            "num_teams_working_on_project":row[4],
+            "duration_from":row[5],
+            "duration_to":row[6]
 
         }))
     conn.close()
 
     return render_template("project_list.html", projects = projects)
+
+
+@madojo.route("/addproject", methods = ['GET','POST'])
+def addProject():
+    if request.method == 'GET':
+        return render_template("addproject.html")
+    if request.method == 'POST':
+        id = int(request.form["id"])
+        name = request.form["name"]
+        category = request.form["category"]
+        description = request.form["description"]
+        num_teams = int(request.form["num_teams_working_on_project"])
+        duration_from = request.form["duration_from"]
+        duration_to = request.form["duration_to"]
+
+        msg = print("inserting:",id,name,category, description,num_teams,
+                    duration_from, duration_to)
+
+        conn = connection()
+        cursor = conn.cursor()
+
+        cursor.execute("INSERT INTO projects VALUES (%s, %s, %s, %s, %s, %s, %s)", (id, name, category,
+                                                                                     description, num_teams,
+                                                                                     duration_from, duration_to))
+        conn.commit()
+        conn.close()
+        return redirect('/projects')
+
+@madojo.route('/updateProject/<int:id>', methods = ['GET','POST'])
+def updateProject(id):
+    projects = []
+    conn = connection()
+    cursor = conn.cursor()
+    if request.method == 'GET':
+        cursor.execute("SELECT * FROM projects WHERE project_id = %s", (str(id)))
+
+        for row in cursor.fetchall():
+            projects.append(({
+                "project_id" : row[0],
+                "name": row[1],
+                "category" : row[2],
+                "description":row[3],
+                "num_teams_working_on_project":row[4],
+                "duration_from":row[5],
+                "duration_to":row[6]
+
+            }))
+        conn.close()
+        return render_template("addproject.html", project ={})
+
+    if request.method == 'POST':
+        id = int(request.form["id"])
+        name = request.form["name"]
+        category = request.form["category"]
+        description = request.form["description"]
+        num_teams = int(request.form["num_teams_working_on_project"])
+        duration_from = request.form["duration_from"]
+        duration_to = request.form["duration_to"]
+
+        msg = print("inserting:",id,name,category, description,num_teams,
+                    duration_from, duration_to)
+
+        cursor.execute("UPDATE projects SET name = %s,category = %s, description = %s, num_teams_working_on_project = %s,duration_from = %s, duration_to = %s WHERE project_id = %s",
+                       (name,category,description,num_teams,duration_from,duration_to,id))
+        conn.commit()
+        conn.close()
+
+
+    return redirect('/projects')
+
+
+@madojo.route('/deleteProject/<int:id>')
+def deleteProject(id):
+    conn = connection()
+    cursor = conn.cursor()
+    cursor.execute("DELETE FROM projects WHERE project_id = %s", (str(id)))
+    conn.commit()
+    conn.close()
+    return redirect('/projects')
 
 #start the server!
 if(__name__ == "__main__"):
