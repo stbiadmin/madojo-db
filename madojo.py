@@ -47,7 +47,7 @@ def students():
                           "major": row[2],
                           "interest": row[3],
                           "cv": row[7],
-                          "certificate": row[6],
+                          "certificate": row[4],
                           "gender" : row[5],
                           "school_year": row[6] }))
     conn.close()
@@ -73,7 +73,8 @@ def addStudent():
         conn = connection()
         cursor = conn.cursor()
 
-        cursor.execute("INSERT INTO students VALUES (%s, %s, %s, %s, %s, %s, %s, %s)", (id, name, major, interest, cv, certificate, gender, school_year))
+        cursor.execute("INSERT INTO students VALUES (%s, %s, %s, %s, %s, %s, %s, %s)", (id, name, major, interest, certificate, gender, school_year,cv))
+
         conn.commit()
         conn.close()
         return redirect('/students')
@@ -126,7 +127,7 @@ def show_student(id):
         cursor.execute("SELECT * FROM students WHERE student_id = %s", (str(id)))
         for row in cursor.fetchall():
             students.append(({"student_id" : row[0],  "name": row[1], "major": row[2], "interest": row[3],
-                              "cv": row[4], "certificate": row[5], "gender" : row[6],"school_year": row[7] }))
+                              "cv": row[7], "certificate": row[4], "gender" : row[5],"school_year": row[6] }))
         conn.close()
     return render_template("student_profile.html", students = students)
 
