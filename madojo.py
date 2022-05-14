@@ -422,6 +422,7 @@ def notebook():
     return redirect('https://mybinder.org/v2/gh/stbiadmin/madojo-notebook/main?labpath=madojo2.ipynb')
 
 
+
 #start the server!
 if(__name__ == "__main__"):
     madojo.run()
