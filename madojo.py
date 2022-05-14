@@ -415,6 +415,13 @@ def deleteProject(id):
     conn.close()
     return redirect('/projects')
 
+
+#Data Exploration (external to website)
+@madojo.route("/explore")
+def notebook():
+    return redirect('https://mybinder.org/v2/gh/stbiadmin/madojo-notebook/main?labpath=madojo2.ipynb')
+
+
 #start the server!
 if(__name__ == "__main__"):
     madojo.run()
